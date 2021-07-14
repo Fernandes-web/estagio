@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Sobre</ion-title>
+
+    <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+      <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
+    </ion-thumbnail>
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img src="assets/user.png" alt="logue-se" routerLink="/login">
+      </ion-thumbnail>
+    </ng-template>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+  <ion-img src="assets/sobre.jpg" alt="Meu App 01" class="logotipo"></ion-img>
+  <p>Esse aplicativo foi desenvolvido com o intuito de atualizar os usuários em tempo real sobre as principais notícias do dia a dia.</p>
+
+    <ion-button class="ion-margin-vertical" expand="block" color="secondary" routerLink="/home">
+      <ion-icon name="home" slot="start"></ion-icon>
+      Página Inicial
+    </ion-button>
+
+    <ion-text class="ion-text-center ion-padding copyright">
+      &copy; Copyrigth 2021 Enaila Fernandes
+    </ion-text>
+
+</ion-content>
