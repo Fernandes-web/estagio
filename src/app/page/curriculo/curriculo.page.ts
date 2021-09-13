@@ -41,4 +41,9 @@ export class CurriculoPage implements OnInit {
       }
     });
   }
+
+  profile() {
+    window.open('https://myaccount.google.com/');
+    return false;
+  }
 }
