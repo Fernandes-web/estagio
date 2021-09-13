@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Seu Currículo</ion-title>
+
+    <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+      <img
+        src="{{user.photoURL}}"
+        alt="{{user.displayName}}"
+        routerLink="/profile"
+      />
+    </ion-thumbnail>
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img src="assets/user.png" alt="logue-se" routerLink="/login" />
+      </ion-thumbnail>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="auth.user | async as user">
+  Este é seu currículo.
+
+  <div *ngIf="item">
+    <p>Nome: {{ item.nome }}</p>
+    <p>E-mail: {{ item.email }}</p>
+  </div>
+
+  <ion-button routerLink="/editacurriculo">Editar</ion-button>
+  <ion-button routerLink="/delivery">Enviar</ion-button>
+</ion-content>

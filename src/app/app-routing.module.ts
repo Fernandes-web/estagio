@@ -13,7 +13,6 @@ const toLogin = () => redirectUnauthorizedTo(['/login']); // Usuário  não loga
 const isLogged = () => redirectLoggedInTo(['/profile']); // Usuário logado
 
 const routes: Routes = [
-
   // Rota da página inicial
   {
     path: '',
@@ -68,7 +67,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./user/login/login.module').then((m) => m.LoginPageModule),
 
-      // Somente se não está logado
+    // Somente se não está logado
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: isLogged },
   },
@@ -79,7 +78,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./user/logout/logout.module').then((m) => m.LogoutPageModule),
 
-      // Só acessa se estiver logado
+    // Só acessa se estiver logado
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: toLogin },
   },
@@ -90,11 +89,55 @@ const routes: Routes = [
     loadChildren: () =>
       import('./user/profile/profile.module').then((m) => m.ProfilePageModule),
 
-      // Só acessa se estiver logado
+    // Só acessa se estiver logado
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: toLogin },
   },
-
+  {
+    path: 'modelos',
+    loadChildren: () =>
+      import('./page/modelos/modelos.module').then((m) => m.ModelosPageModule),
+  },
+  {
+    path: 'curriculo',
+    loadChildren: () =>
+      import('./page/curriculo/curriculo.module').then(
+        (m) => m.CurriculoPageModule
+      ),
+    // Só acessa se estiver logado
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin },
+  },
+  {
+    path: 'delivery',
+    loadChildren: () =>
+      import('./page/delivery/delivery.module').then(
+        (m) => m.DeliveryPageModule
+      ),
+    // Só acessa se estiver logado
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin },
+  },
+  {
+    path: 'novocurriculo',
+    loadChildren: () =>
+      import('./page/novocurriculo/novocurriculo.module').then(
+        (m) => m.NovocurriculoPageModule
+      ),
+    // Só acessa se estiver logado
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin },
+  },
+  {
+    path: 'editacurriculo',
+    loadChildren: () =>
+      import('./page/editacurriculo/editacurriculo.module').then(
+        (m) => m.EditacurriculoPageModule
+      ),
+    // Só acessa se estiver logado
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin },
+  },
   // Rota curinga (rotas inexistentes)
   // TEM QUE SER SEMPRE A ÚLTIMA ROTA
   {

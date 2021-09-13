@@ -8,7 +8,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  constructor(public auth: AngularFireAuth) {}
+  constructor(public auth: AngularFireAuth) {
+
+    
+
+
+  }
 
   ngOnInit() {}
 
