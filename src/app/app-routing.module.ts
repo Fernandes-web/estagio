@@ -20,13 +20,6 @@ const routes: Routes = [
     pathMatch: 'full',
   },
 
-  // Página modelo do ionic (REMOVER)
-  {
-    path: 'folder/:id',
-    loadChildren: () =>
-      import('./folder/folder.module').then((m) => m.FolderPageModule),
-  },
-
   // Página inicial
   {
     path: 'home',
@@ -93,11 +86,7 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: toLogin },
   },
-  {
-    path: 'modelos',
-    loadChildren: () =>
-      import('./page/modelos/modelos.module').then((m) => m.ModelosPageModule),
-  },
+
   {
     path: 'curriculo',
     loadChildren: () =>
@@ -109,7 +98,7 @@ const routes: Routes = [
     data: { authGuardPipe: toLogin },
   },
   {
-    path: 'delivery',
+    path: 'candidatar/:id',
     loadChildren: () =>
       import('./page/delivery/delivery.module').then(
         (m) => m.DeliveryPageModule
@@ -129,7 +118,7 @@ const routes: Routes = [
     data: { authGuardPipe: toLogin },
   },
   {
-    path: 'editacurriculo',
+    path: 'editacurriculo/:id',
     loadChildren: () =>
       import('./page/editacurriculo/editacurriculo.module').then(
         (m) => m.EditacurriculoPageModule

@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   // 3) Atributos do script
   private itemsCollection: AngularFirestoreCollection;
-  public items: Observable<any>;
+  private items: Observable<any>;
 
   constructor(
     // 2) Injeta dependências
@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
 
     // 4) Acessa e obtém dados da coleção
     this.itemsCollection = afs.collection(
-      'articles', // Coleção a ser consultada
+      'vagas', // Coleção a ser consultada
       ref => ref // Aplica filtros
         .where('status', '==', 'ativo') // Somente com 'status'='ativo'
         .orderBy('date', 'desc') // Ordena por 'date' na ordem decrescente

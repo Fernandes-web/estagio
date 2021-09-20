@@ -29,6 +29,8 @@ export class ViewPage implements OnInit {
 
   public pipe = new DatePipe('en_US'); // Formatar as datas
 
+  public comments: any;
+
   constructor(
     // Injeção de dependências
     public activatedRoute: ActivatedRoute,
@@ -51,14 +53,26 @@ export class ViewPage implements OnInit {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
     // Obter o artigo do firestore à partir do ID
-    this.item = this.afs.doc(`articles/${this.id}`).valueChanges();
+    this.item = this.afs
+      .doc(`vagas/${this.id}`)
+      .valueChanges({ idField: 'id' });
+
+    // Obter os comentários deste artigo
+    this.comments = this.afs
+      .collection('comments', (ref) =>
+        ref
+          .where('article', '==', this.id)
+          .where('status', '==', 'ativo')
+          .orderBy('date', 'desc')
+      )
+      .valueChanges();
   }
 
   sendComment() {
     // Cria e formata a data do cometário
     this.uDate = this.pipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss').trim();
 
-    var tempComment = this.uComment.trim();
+    const tempComment = this.uComment.trim();
 
     if (tempComment !== '') {
       this.comment = {
@@ -68,6 +82,7 @@ export class ViewPage implements OnInit {
         name: this.uName,
         email: this.uEmail,
         comment: this.uComment,
+        status: 'moderando'
       };
 
       this.afs
@@ -87,12 +102,12 @@ export class ViewPage implements OnInit {
   // Feedback
   // Exibe feedback
   async presentAlert() {
-    var name = this.uName;
-    var fName = name.split(' ');
+    const name = this.uName;
+    const fName = name.split(' ');
 
     const alert = await this.alert.create({
       header: `Oba ${fName[0]}!`,
-      message: 'Comentário enviado com sucesso!',
+      message: 'Comentário enviado com sucesso e aguarda moderação para ser publicado!',
       buttons: [
         {
           text: 'Ok',

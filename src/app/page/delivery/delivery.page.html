@@ -20,5 +20,13 @@
 </ion-header>
 
 <ion-content class="ion-padding-horizontal">
-
+<p>
+  Tem certeza que deseja enviar o currículo para essa vaga?
+</p>
+<p>
+  <ion-button expand="block" (click)="enviar()"><ion-icon name="thumbs-up" slot="start"></ion-icon>Confirmar </ion-button>
+</p>
+<p>
+  <ion-button expand="block"color="danger" routerLink="/home"><ion-icon name="ban" slot="start" ></ion-icon>Cancelar </ion-button>
+</p>
 </ion-content>

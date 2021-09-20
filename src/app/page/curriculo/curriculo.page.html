@@ -86,18 +86,15 @@
       </ion-item>
 
     </ion-list>
-    <ion-button expand="block" routerLink="/edit/{{ item.uid }}">Editar</ion-button>
+    <ion-button expand="block" routerLink="/editacurriculo/{{ item.uid }}">Editar</ion-button>
   </ion-card-content>
 </ion-card>
 
 <!-- Logout -->
 <p class="ion-padding-top">Para sair do aplicativo, clique no botão abaixo:</p>
-<ion-button expand="block" color="danger" routerLink="/user/logout">
+<ion-button expand="block" color="danger" routerLink="/logout">
   <ion-icon name="log-out" slot="start"></ion-icon>
   Sair do Aplicativo
 </ion-button>
 
-
-  <ion-button routerLink="/editacurriculo">Editar</ion-button>
-  <ion-button routerLink="/delivery">Enviar</ion-button>
 </ion-content>

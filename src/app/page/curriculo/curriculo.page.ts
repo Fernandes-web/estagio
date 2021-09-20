@@ -35,7 +35,6 @@ export class CurriculoPage implements OnInit {
             } else {
               // Se tem cadastro, exibe perfil
               this.item = uData.data();
-              console.log(this.item);
             }
           });
       }

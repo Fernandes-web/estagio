@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { EditacurriculoPageRoutingModule } from './editacurriculo-routing.module';
 
 import { EditacurriculoPage } from './editacurriculo.page';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditacurriculoPageRoutingModule
+    EditacurriculoPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [EditacurriculoPage]
 })

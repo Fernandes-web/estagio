@@ -5,12 +5,12 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyD_V8cdx8-VAe-04IMyEE7aDrj1uhovR_s",
-    authDomain: "estagio-a3fc9.firebaseapp.com",
-    projectId: "estagio-a3fc9",
-    storageBucket: "estagio-a3fc9.appspot.com",
-    messagingSenderId: "1014382970666",
-    appId: "1:1014382970666:web:2a60131c3996558e71c053"
+    apiKey: 'AIzaSyD_V8cdx8-VAe-04IMyEE7aDrj1uhovR_s',
+    authDomain: 'estagio-a3fc9.firebaseapp.com',
+    projectId: 'estagio-a3fc9',
+    storageBucket: 'estagio-a3fc9.appspot.com',
+    messagingSenderId: '1014382970666',
+    appId: '1:1014382970666:web:2a60131c3996558e71c053'
   }
 };
 
